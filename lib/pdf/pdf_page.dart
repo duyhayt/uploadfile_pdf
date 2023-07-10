@@ -10,21 +10,43 @@ class DocumentViewer extends StatelessWidget {
     PdfController controller = Get.put(PdfController());
     final pathFile = Get.arguments;
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Upload file PDF'),
-          centerTitle: true,
-          actions: [
-            IconButton(
-                onPressed: () {
-                  print("OnPress");
-                },
-                icon: const Icon(Icons.list))
-          ],
-        ),
-        body: SizedBox(
-          width: double.infinity,
-          height: double.infinity,
-          child: controller.openViewPdf(pathFile),
-        ));
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        title: const Text('Upload file PDF'),
+        centerTitle: true,
+        actions: [
+          IconButton(
+              onPressed: () {
+                print("OnPress");
+              },
+              icon: const Icon(Icons.list))
+        ],
+      ),
+      body: SizedBox(
+        width: double.infinity,
+        height: double.infinity,
+        child: controller.openViewPdf(pathFile),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Person',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.add),
+      ),
+    );
   }
 }
