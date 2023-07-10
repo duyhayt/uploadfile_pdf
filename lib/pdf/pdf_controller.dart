@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:pdftron_flutter/pdftron_flutter.dart';
 
 class PdfController extends GetxController {
+
   DocumentView openViewPdf(pathFile) {
     return DocumentView(
       onCreated: (DocumentViewController controller) async {

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:pdftron_flutter/pdftron_flutter.dart';
 import 'package:uploadfile_flutter/pdf/pdf_controller.dart';
 
 class DocumentViewer extends StatelessWidget {
