@@ -1,7 +1,7 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'view_document.dart';
+import 'pdf/view_document.dart';
 import 'dart:io';
 
 class UploadFileScreen extends StatefulWidget {
@@ -15,6 +15,7 @@ class _UploadFileScreenState extends State<UploadFileScreen> {
   //Chọn file từ thiết bị
   File? _pickedFile;
   var fileName = ''.obs;
+
   Future<void> _pickFile() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
@@ -39,17 +40,20 @@ class _UploadFileScreenState extends State<UploadFileScreen> {
         title: const Text('Upload file'),
         centerTitle: true,
       ),
-      body: Obx( () =>
-        Column(
+      body: Obx(
+        () => Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text(fileName.value),
+            const SizedBox(
+              height: 30,
+            ),
             Center(
-                child: TextButton(
+                child: OutlinedButton(
                     onPressed: () {
                       Get.to(const DocumentViewer(), arguments: _pickedFile!.path);
                     },
                     child: const Text('Xem tài liệu'))),
-            Text(fileName.value),
           ],
         ),
       ),
